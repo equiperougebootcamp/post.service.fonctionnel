@@ -1,0 +1,37 @@
+[
+  {
+    "id":1,
+    "typePost":"OFFRE",
+    "statusPost":"OUVERT",
+    "dateCreation" : 1511907379,
+    "dateMiseAJour" : 1511907379,
+    "userId":1,
+    "produitId":2,
+    "postulantId":[1,2,3]
+
+  },
+
+  {
+    "id":2,
+    "typePost":"DEMANDE",
+    "statusPost":"OUVERT",
+    "dateCreation" : 1511907379,
+    "dateMiseAJour" : 1511907379,
+    "userId":1,
+    "produitId":1,
+    "postulantId":[1,2,3]
+
+  },
+
+  {
+    "id":3,
+    "typePost":"OFFRE",
+    "statusPost":"OUVERT",
+    "dateCreation" : 1511907379,
+    "dateMiseAJour" : 1511907379,
+    "userId":2,
+    "produitId":4,
+    "postulantId":[1,2,3]
+
+  }
+]
