@@ -1,6 +1,7 @@
 package com.bootcamp.services;
 
 import com.bootcamp.commons.constants.DatabaseConstants;
+import com.bootcamp.commons.enums.TypePost;
 import com.bootcamp.commons.exceptions.DatabaseException;
 import com.bootcamp.commons.models.Criteria;
 import com.bootcamp.commons.models.Criterias;
@@ -52,6 +53,13 @@ public class PostService implements DatabaseConstants {
         List<Post> posts = postCRUD.read(criterias);
 
         return posts.get(0);
+    }
+
+    public List<Post> readByTypePost(TypePost type) throws SQLException {
+        Criterias criterias = new Criterias();
+        criterias.addCriteria(new Criteria("typePost", "=", type));
+        List<Post> posts = postCRUD.read(criterias);
+        return posts;
     }
 
 

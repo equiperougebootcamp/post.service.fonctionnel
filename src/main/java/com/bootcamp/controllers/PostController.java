@@ -1,5 +1,6 @@
 package com.bootcamp.controllers;
 
+import com.bootcamp.commons.enums.TypePost;
 import com.bootcamp.commons.exceptions.DatabaseException;
 import com.bootcamp.entities.Post;
 import com.bootcamp.services.PostService;
@@ -42,6 +43,15 @@ public class PostController {
     @ApiOperation(value = "Read All Posts", notes = "Read aall the Posts")
     public ResponseEntity<List<Post>> read() throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
         List<Post> posts = postService.read(request);
+        return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/{typePoost}",method = RequestMethod.GET)
+    @ApiVersions({"1.0"})
+    @ApiOperation(value = "Read All Posts by Type of post", notes = "Read aall the Posts by type of post")
+    public ResponseEntity<List<Post>> read(@PathVariable String typePost) throws SQLException, IllegalAccessException, DatabaseException, InvocationTargetException {
+        TypePost type = TypePost.valueOf( typePost.toUpperCase() );
+        List<Post> posts = postService.readByTypePost(type);
         return new ResponseEntity<List<Post>>(posts, HttpStatus.OK);
     }
 
